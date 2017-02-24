@@ -1,17 +1,17 @@
-/*´óÒ»Ê±Ğ´µÄ´úÂë£¬ÄÃ×¦»úÇÃµÄ£¬ÅÅ°æ²î¼ûÁÂ¡£¡£¡£*/
+/*å¤§ä¸€æ—¶å†™çš„ä»£ç ï¼Œæ‹¿çˆªæœºæ•²çš„ï¼Œæ’ç‰ˆå·®è§è°…ã€‚ã€‚ã€‚*/
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
 #include<time.h>
 #include<windows.h>
-#define H 26           //HÎªÆæÊı,ÆåÅÌ´óĞ¡
+#define H 26           //Hä¸ºå¥‡æ•°,æ£‹ç›˜å¤§å°
 #define up 'w'
 #define down 's'
 #define left 'a'
 #define right 'd'
-#define ok 'j'		//Âä×ÓÊÇj
+#define ok 'j'		//è½å­æ˜¯j
 int x,y,nextx,nexty,wint,turn,now,you,maxm=0,maxy=0,maxmcoordx=0,maxmcoordy=0,maxycoordx=0,maxycoordy=0,map[H][H];
-void init_map_array() //³õÊ¼»¯mapÆåÅÌÊı×é
+void init_map_array() //åˆå§‹åŒ–mapæ£‹ç›˜æ•°ç»„
 {
 	system("cls");
 	int i,j;
@@ -24,7 +24,7 @@ void init_map_array() //³õÊ¼»¯mapÆåÅÌÊı×é
             map[i][j]=4;
     map[x][y]=3;
 }
-void drawMap()  //ÏÔÊ¾ÆåÅÌ½çÃæ
+void drawMap()  //æ˜¾ç¤ºæ£‹ç›˜ç•Œé¢
 {
 	int i,j;
     for(i=4;i<H-4;i++)
@@ -33,37 +33,37 @@ void drawMap()  //ÏÔÊ¾ÆåÅÌ½çÃæ
         {
 			if (map[i][j]==4)
        		 {
-       		 	if (i==4&&j==4) printf("\t©³");
-       		 	else if (i==4&&j==H-5) printf("©·");
-       		 	else if (i==H-5&&j==4) printf("\t©»");
-       		 	else if (i==H-5&&j==H-5) printf("©¿");
+       		 	if (i==4&&j==4) printf("\tâ”");
+       		 	else if (i==4&&j==H-5) printf("â”“");
+       		 	else if (i==H-5&&j==4) printf("\tâ”—");
+       		 	else if (i==H-5&&j==H-5) printf("â”›");
 				else
 				{
        		 		switch(j)
        		 		{
-       		 			case H-5:printf("©Ï");break;
-       		 			case 4  :printf("\t©Ç");break;
+       		 			case H-5:printf("â”«");break;
+       		 			case 4  :printf("\tâ”£");break;
        		 			default :
        		 					switch (i)
        		 					{
-       		 					case 4  :printf("©×");break;
-       		 					case H-5:printf("©ß");break;
-       		 					default :printf("©ï");break;
+       		 					case 4  :printf("â”³");break;
+       		 					case H-5:printf("â”»");break;
+       		 					default :printf("â•‹");break;
        		 					}
        		 					break;
 					}
 				}
         	}
             if (map[i][j]==1)
-            printf("¡ñ");
+            printf("â—");
             if (map[i][j]==0)
-            printf("¡ğ");
+            printf("â—‹");
             if (map[i][j]==3)
-            printf("¢ú");
+            printf("â…©");
         }
         printf("\n");
     }
-    	printf("¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T\n");
+    	printf("â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•\n");
 }
 void swap()
 {
@@ -93,7 +93,7 @@ try_again:
 
 	switch(i)
 	{
-		case left:             /*µÚÒ»¸öif·ÀÖ¹¹â±êºÍºÚ°××Ó½»»»£¬µÚ¶ş¸öif·ÀÖ¹µ±Ç°×ø±ê±ä³ÉºÚ°××Ó£¬¸ú×Å×ß*/
+		case left:             /*ç¬¬ä¸€ä¸ªifé˜²æ­¢å…‰æ ‡å’Œé»‘ç™½å­äº¤æ¢ï¼Œç¬¬äºŒä¸ªifé˜²æ­¢å½“å‰åæ ‡å˜æˆé»‘ç™½å­ï¼Œè·Ÿç€èµ°*/
 			nextx=x;
 			if (y==4)
 				goto try_again;
@@ -323,209 +323,209 @@ int iswin()
 
 void compare()
 {
-	int i,j,score=0,coord[H*H][2]={0},max=0,t=0;//tÀ´¼ÆÊı
+	int i,j,score=0,coord[H*H][2]={0},max=0,t=0;//tæ¥è®¡æ•°
 	for (i=4;i<H-4;i++)
 	{
 		for(j=4;j<H-4;j++)
 		{
 
-		//±éÀúÃ»Ò»¸ö¸ñ×Ó
+		//éå†æ²¡ä¸€ä¸ªæ ¼å­
 		if (map[i][j]==4)
-			{//Èç¹ûµ±Ç°ÊÇ¿Õ¸ñ
-		if (map[i+1][j]==now||map[i][j+1]==now||map[i+1][j+1]==now||map[i-1][j+1]==now||map[i+1][j-1]==now||map[i-1][j-1]==now||map[i][j-1]==now||map[i-1][j]==now)   //ÕâÀï°Ë¸ö·½Ïò±éÀú
-		//Èç¹ûµ±Ç°µÄ¿Õ¸ñÏÂ¸öÓĞ×Ó
+			{//å¦‚æœå½“å‰æ˜¯ç©ºæ ¼
+		if (map[i+1][j]==now||map[i][j+1]==now||map[i+1][j+1]==now||map[i-1][j+1]==now||map[i+1][j-1]==now||map[i-1][j-1]==now||map[i][j-1]==now||map[i-1][j]==now)   //è¿™é‡Œå…«ä¸ªæ–¹å‘éå†
+		//å¦‚æœå½“å‰çš„ç©ºæ ¼ä¸‹ä¸ªæœ‰å­
 				{
 
-	//ÓÒ»îÒ»
+	//å³æ´»ä¸€
 			if (map[i][j+1]==now&&map[i][j+2]==4)
 				score+=20;
-	//ÓÒËÀÒ»
+	//å³æ­»ä¸€
 			if (map[i][j+1]==now&&map[i][j+2]==9||map[i][j+1]==now&&map[i][j+2]==you)
 				score+=4;
-	//ÓÒ»î¶ş
+	//å³æ´»äºŒ
 			if (map[i][j+1]==now&&map[i][j+2]==now&&map[i][j+3]==4)
 				score+=400;
-	//ÓÒËÀ¶ş
+	//å³æ­»äºŒ
 			if (map[i][j+1]==now&&map[i][j+2]==now&&map[i][j+3]==9||map[i][j+1]==now&&map[i][j+2]==now&&map[i][j+3]==you)
 				score+=90;
-	//ÓÒ»îÈı
+	//å³æ´»ä¸‰
 	 		if (map[i][j+1]==now&&map[i][j+2]==now&&map[i][j+3]==now&&map[i][j+4]==4)
 	 			score+=6000;
-	//ÓÒËÀÈı
+	//å³æ­»ä¸‰
 	 		if (map[i][j+1]==now&&map[i][j+2]==now&&map[i][j+3]==now&&map[i][j+4]==you||map[i][j+1]==now&&map[i][j+2]==now&&map[i][j+3]==now&&map[i][j+4]==9)
 	 			score+=800;
-	//ÓÒ»îËÄ
+	//å³æ´»å››
 			if (map[i][j+1]==now&&map[i][j+2]==now&&map[i][j+3]==now&&map[i][j+4]==now&&map[i][j+5]==4)
 				score+=20000;
-	//ÓÒËÀËÄ
+	//å³æ­»å››
 	 		if (map[i][j+1]==now&&map[i][j+2]==now&&map[i][j+3]==now&&map[i][j+4]==now&&map[i][j+5]==you||map[i][j+1]==now&&map[i][j+2]==now&&map[i][j+3]==now&&map[i][j+4]==now&&map[i][j+5]==9)
 	 			score+=10000;
-	//×ó»îÒ»
+	//å·¦æ´»ä¸€
 			if (map[i][j-1]==now&&map[i][j-2]==4)
 				score+=20;
-	//×óËÀÒ»
+	//å·¦æ­»ä¸€
 			if (map[i][j-1]==now&&map[i][j-2]==you||map[i][j-1]==0&&map[i][j-2]==9)
 				score+=4;
-	//×ó»î¶ş
+	//å·¦æ´»äºŒ
 			if (map[i][j-1]==now&&map[i][j-2]==now&&map[i][j-3]==4)
 				score+=400;
-	//×óËÀ¶ş
+	//å·¦æ­»äºŒ
 			if (map[i][j-1]==now&&map[i][j-2]==now&&map[i][j-3]==you||map[i][j-1]==now&&map[i][j-2]==now&&map[i][j-3]==9)
 				score+=90;
-	//×ó»îÈı
+	//å·¦æ´»ä¸‰
 			if (map[i][j-1]==you&&map[i][j-2]==you&&map[i][j-3]==you&&map[i][j-4]==4)
 				score+=6000;
-	//×óËÀÈı
+	//å·¦æ­»ä¸‰
 			if (map[i][j-1]==0&&map[i][j-2]==0&&map[i][j-3]==0&&map[i][j-4]==you||map[i][j-1]==0&&&map[i][j-2]==0&&map[i][j-3]==0&&map[i][j-4]==9)
 				score+=800;
-	//×ó»îËÄ
+	//å·¦æ´»å››
 			if (map[i][j-1]==now&&map[i][j-2]==now&&map[i][j-3]==now&&map[i][j-4]==now&&map[i][j-5]==4)
 				score+=20000;
-	//×óËÀËÄ
+	//å·¦æ­»å››
 			if (map[i][j-1]==now&&map[i][j-2]==now&&map[i][j-3]==now&&map[i][j-4]==now&&map[i][j-5]==you||map[i][j-1]==now&&map[i][j-2]==now&&map[i][j-3]==now&&map[i][j-4]==now&&map[i][j-5]==9)
 				score+=10000;
-	//ÏÂ»îÒ»
+	//ä¸‹æ´»ä¸€
 			if (map[i+1][j]==now&&map[i+2][j]==4)
 				score+=20;
-	//ÏÂËÀÒ»
+	//ä¸‹æ­»ä¸€
 			if (map[i+1][j]==now&&map[i+2][j]==you||map[i+1][j]==now&&map[i+2][j]==9)
 				score+=4;
-	//ÏÂ»î¶ş
+	//ä¸‹æ´»äºŒ
 			if (map[i+1][j]==now&&map[i+2][j]==now&&map[i+3][j]==4)
 				score+=400;
-	//ÏÂËÀ¶ş
+	//ä¸‹æ­»äºŒ
 			 if (map[i+1][j]==now&&map[i+2][j]==now&&map[i+3][j]==9||map[i+1][j]==now&&map[i+2][j]==now&&map[i+3][j]==you)
 				score+=90;
-	//ÏÂ»îÈı
+	//ä¸‹æ´»ä¸‰
 			if (map[i+1][j]==now&&map[i+2][j]==now&&map[i+3][j]==now&&map[i+4][j]==4)
 	 			score+=6000;
-	//ÏÂËÀÈı
+	//ä¸‹æ­»ä¸‰
 			 if (map[i+1][j]==now&&map[i+2][j]==now&&map[i+3][j]==now&&map[i+4][j]==you||map[i+1][j]==now&&map[i+2][j]==now&&map[i+3][j]==now&&map[i+4][j]==9)
 	 			score+=800;
-	//ÏÂ»îËÄ
+	//ä¸‹æ´»å››
 			 if (map[i+1][j]==now&&map[i+2][j]==now&&map[i+3][j]==now&&map[i+4][j]==now&&map[i+5][j]==4)
 				score+=20000;
-	//ÏÂËÀËÄ
+	//ä¸‹æ­»å››
 			 if (map[i+1][j]==now&&map[i+2][j]==now&&map[i+3][j]==now&&map[i+4][j]==now&&map[i+5][j]==you||map[i+1][j]==now&&map[i+2][j]==now&&map[i+3][j]==now&&map[i+4][j]==now&&map[i+5][j]==9)
 	 			score+=10000;
-	//ÉÏ»îÒ»
+	//ä¸Šæ´»ä¸€
 			if (map[i-1][j]==now&&map[i-2][j]==4)
 				score+=20;
-	//ÉÏËÀÒ»
+	//ä¸Šæ­»ä¸€
 			if (map[i-1][j]==now&&map[i-2][j]==you||map[i-1][j]==now&&map[i-2][j]==9)
 				score+=4;
-	//ÉÏ»î¶ş
+	//ä¸Šæ´»äºŒ
 			if (map[i-1][j]==now&&map[i-2][j]==now&&map[i][j-3]==4)
 				score+=400;
-	//ÉÏËÀ¶ş
+	//ä¸Šæ­»äºŒ
 			 if (map[i-1][j]==now&&map[i-2][j]==now&&map[i-3][j]==9||map[i-1][j]==now&&map[i-2][j]==now&&map[i-3][j]==you)
 				score+=90;
-	//ÉÏ»îÈı
+	//ä¸Šæ´»ä¸‰
 			if (map[i-1][j]==now&&map[i-2][j]==now&&map[i-3][j]==now&&map[i-4][j]==4)
 	 			score+=6000;
-	//ÉÏËÀÈı
+	//ä¸Šæ­»ä¸‰
 			 if (map[i-1][j]==now&&map[i-2][j]==now&&map[i-3][j]==now&&map[i-4][j]==you||map[i-1][j]==now&&map[i-2][j]==now&&map[i-3][j]==now&&map[i-4][j]==9)
 	 			score+=800;
-	//ÉÏ»îËÄ
+	//ä¸Šæ´»å››
 			 if (map[i-1][j]==now&&map[i-2][j]==now&&map[i-3][j]==now&&map[i-4][j]==now&&map[i-5][j]==4)
 				score+=20000;
-	//ÉÏËÀËÄ
+	//ä¸Šæ­»å››
 			 if (map[i-1][j]==now&&map[i-2][j]==now&&map[i-3][j]==now&&map[i-4][j]==now&&map[i-5][j]==you||map[i-1][j]==now&&map[i-2][j]==now&&map[i-3][j]==now&&map[i-4][j]==now&&map[i-5][j]==9)
 	 			score+=10000;
-	//ÓÒÏÂ»îÒ»
+	//å³ä¸‹æ´»ä¸€
 			 if (map[i+1][j+1]==now&&map[i+2][j+2]==4)
 				score+=20;
-	//ÓÒÏÂËÀÒ»
+	//å³ä¸‹æ­»ä¸€
 			 if (map[i+1][j+1]==now&&map[i+2][j+2]==9||map[i+1][j+1]==now&&map[i+2][j+2]==you)
 				score+=4;
-	//ÓÒÏÂ»î¶ş
+	//å³ä¸‹æ´»äºŒ
 		 	 if (map[i+1][j+1]==now&&map[i+2][j+2]==now&&map[i+3][j+3]==4)
 				score+=400;
-	//ÓÒÏÂËÀ¶ş
+	//å³ä¸‹æ­»äºŒ
 			 if (map[i+1][j+1]==now&&map[i+2][j+2]==now&&map[i+3][j+3]==9||map[i+1][j+1]==now&&map[i+2][j+2]==now&&map[i+3][j+3]==you)
 				score+=90;
-	//ÓÒÏÂ»îÈı
+	//å³ä¸‹æ´»ä¸‰
 	 		 if (map[i+1][j+1]==now&&map[i+2][j+2]==now&&map[i+3][j+3]==now&&map[i+4][j+4]==4)
 	 			score+=6000;
-	//ÓÒÏÂËÀÈı
+	//å³ä¸‹æ­»ä¸‰
 	 		 if (map[i+1][j+1]==now&&map[i+2][j+2]==now&&map[i+3][j+3]==now&&map[i+4][j+4]==you||map[i+1][j+1]==now&&map[i+2][j+2]==now&&map[i+3][j+3]==now&&map[i+4][j+4]==9)
 	 			score+=800;
-	//ÓÒÏÂ»îËÄ
+	//å³ä¸‹æ´»å››
 			 if (map[i+1][j+1]==now&&map[i+2][j+2]==now&&map[i+3][j+3]==now&&map[i+4][j+4]==now&&map[i+5][j+5]==4)
 				score+=20000;
-	//ÓÒÏÂËÀËÄ
+	//å³ä¸‹æ­»å››
 	 		 if (map[i+1][j+1]==now&&map[i+2][j+2]==now&&map[i+3][j+3]==now&&map[i+4][j+4]==now&&map[i+5][j+5]==you||map[i+1][j+1]==now&&map[i+2][j+2]==now&&map[i+3][j+3]==now&&map[i+4][j+4]==now&&map[i+5][j+5]==9)
 	 			score+=10000;
-	//×óÉÏ»îÒ»
+	//å·¦ä¸Šæ´»ä¸€
 			 if (map[i-1][j-1]==now&&map[i-2][j-2]==4)
 				score+=20;
-	//×óÉÏËÀÒ»
+	//å·¦ä¸Šæ­»ä¸€
 			 if (map[i-1][j-1]==now&&map[i-2][j-2]==9||map[i-1][j-1]==now&&map[i-2][j-2]==you)
 				score+=4;
-	//×óÉÏ»î¶ş
+	//å·¦ä¸Šæ´»äºŒ
 		 	 if (map[i-1][j-1]==now&&map[i-2][j-2]==now&&map[i-3][j-3]==4)
 				score+=400;
-	//×óÉÏËÀ¶ş
+	//å·¦ä¸Šæ­»äºŒ
 			 if (map[i-1][j-1]==now&&map[i-2][j-2]==now&&map[i-3][j-3]==9||map[i-1][j-1]==now&&map[i-2][j-2]==now&&map[i-3][j-3]==you)
 				score+=90;
-	//×óÉÏ»îÈı
+	//å·¦ä¸Šæ´»ä¸‰
 	 		 if (map[i-1][j-1]==now&&map[i-2][j-2]==now&&map[i-3][j-3]==now&&map[i-4][j-4]==4)
 	 			score+=6000;
-	//×óÉÏËÀÈı
+	//å·¦ä¸Šæ­»ä¸‰
 	 		 if (map[i-1][j-1]==now&&map[i-2][j-2]==now&&map[i-3][j-3]==now&&map[i-4][j-4]==you||map[i-1][j-1]==now&&map[i-2][j-2]==now&&map[i-3][j-3]==now&&map[i-4][j-4]==9)
 	 			score+=800;
-	//×óÉÏ»îËÄ
+	//å·¦ä¸Šæ´»å››
 			 if (map[i-1][j-1]==now&&map[i-2][j-2]==now&&map[i-3][j-3]==now&&map[i-4][j-4]==now&&map[i-5][j-5]==4)
 				score+=20000;
-	//×óÉÏËÀËÄ
+	//å·¦ä¸Šæ­»å››
 	 		 if (map[i-1][j-1]==now&&map[i-2][j-2]==now&&map[i-3][j-3]==now&&map[i-4][j-4]==now&&map[i-5][j-5]==you||map[i-1][j-1]==now&&map[i-2][j-2]==now&&map[i-3][j-3]==now&&map[i-4][j-4]==now&&map[i-5][j-5]==9)
 	 			score+=10000;
-	//×óÏÂ»îÒ»
+	//å·¦ä¸‹æ´»ä¸€
 			 if (map[i+1][j-1]==now&&map[i+2][j-2]==4)
 				score+=20;
-	//×óÏÂËÀÒ»
+	//å·¦ä¸‹æ­»ä¸€
 		 	 if (map[i+1][j-1]==now&&map[i+2][j-2]==you||map[i+1][j-1]==now&&map[i+2][j-2]==9)
 				score+=4;
-	//×óÏÂ»î¶ş
+	//å·¦ä¸‹æ´»äºŒ
 			 if (map[i+1][j-1]==now&&map[i+2][j-2]==now&&map[i+3][j-3]==4)
 				score+=400;
-	//×óÏÂËÀ¶ş
+	//å·¦ä¸‹æ­»äºŒ
 			 if (map[i+1][j-1]==now&&map[i+2][j-2]==now&&map[i+3][j-3]==9||map[i+1][j-1]==now&&map[i+2][j-2]==now&&map[i+3][j-3]==you)
 				score+=90;
-	//×óÏÂ»îÈı
+	//å·¦ä¸‹æ´»ä¸‰
 			 if (map[i+1][j-1]==now&&map[i+2][j-2]==now&&map[i+3][j-3]==now&&map[i+4][j-4]==4)
 	 			score+=6000;
-	//×óÏÂËÀÈı
+	//å·¦ä¸‹æ­»ä¸‰
 			 if (map[i+1][j-1]==now&&map[i+2][j-2]==now&&map[i+3][j-3]==now&&map[i+4][j-4]==you||map[i+1][j-1]==now&&map[i+2][j-2]==now&&map[i+3][j-3]==now&&map[i+4][j-4]==9)
 	 			score+=800;
-	//×óÏÂ»îËÄ
+	//å·¦ä¸‹æ´»å››
 			 if (map[i+1][j-1]==now&&map[i+2][j-2]==now&&map[i+3][j-3]==now&&map[i+4][j-4]==now&&map[i+5][j-5]==4)
 				score+=20000;
-	//×óÏÂËÀËÄ
+	//å·¦ä¸‹æ­»å››
 			 if (map[i+1][j-1]==now&&map[i+2][j-2]==now&&map[i+3][j-3]==now&&map[i+4][j-4]==now&&map[i+5][j-5]==you||map[i+1][j-1]==now&&map[i+2][j-2]==now&&map[i+3][j-3]==now&&map[i+4][j-4]==now&&map[i+5][j-5]==9)
 	 			score+=10000;
-	//ÓÒÉÏ»îÒ»
+	//å³ä¸Šæ´»ä¸€
 			 if (map[i-1][j+1]==now&&map[i-2][j+2]==4)
 				score+=20;
-	//ÓÒÉÏËÀÒ»
+	//å³ä¸Šæ­»ä¸€
 		 	 if (map[i-1][j+1]==now&&map[i-2][j+2]==you||map[i-1][j+1]==now&&map[i-2][j+2]==9)
 				score+=4;
-	//ÓÒÉÏ»î¶ş
+	//å³ä¸Šæ´»äºŒ
 			 if (map[i-1][j+1]==now&&map[i-2][j+2]==now&&map[i-3][j+3]==4)
 				score+=400;
-	//ÓÒÉÏËÀ¶ş
+	//å³ä¸Šæ­»äºŒ
 			 if (map[i-1][j+1]==now&&map[i-2][j+2]==now&&map[i-3][j+3]==9||map[i-1][j+1]==now&&map[i-2][j+2]==now&&map[i-3][j+3]==you)
 				score+=90;
-	//ÓÒÉÏ»îÈı
+	//å³ä¸Šæ´»ä¸‰
 			 if (map[i-1][j+1]==now&&map[i-2][j+2]==now&&map[i-3][j+3]==now&&map[i-4][j+4]==4)
 	 			score+=6000;
-	//ÓÒÉÏËÀÈı
+	//å³ä¸Šæ­»ä¸‰
 			 if (map[i-1][j+1]==now&&map[i-2][j+2]==now&&map[i-3][j+3]==now&&map[i-4][j+4]==you||map[i-1][j+1]==now&&map[i-2][j+2]==now&&map[i-3][j+3]==now&&map[i-4][j+4]==9)
 	 			score+=800;
-	//ÓÒÉÏ»îËÄ
+	//å³ä¸Šæ´»å››
 			 if (map[i-1][j+1]==now&&map[i-2][j+2]==now&&map[i-3][j+3]==now&&map[i-4][j+4]==now&&map[i-5][j+5]==4)
 				score+=20000;
-	//ÓÒÉÏËÀËÄ
+	//å³ä¸Šæ­»å››
 			 if (map[i-1][j+1]==now&&map[i-2][j+2]==now&&map[i-3][j+3]==now&&map[i-4][j+4]==now&&map[i-5][j+5]==you||map[i-1][j+1]==now&&map[i-2][j+2]==now&&map[i-3][j+3]==now&&map[i-4][j+4]==now&&map[i-5][j+5]==9)
 	 			score+=10000;
 	 		 if (
@@ -541,7 +541,7 @@ map[i-1][j+1]==now&&map[i-2][j+2]==now&&map[i-3][j+3]==4&&map[i+1][j-1]==now&&ma
 				}
 			}
 
-	//ÏÂ»îÒ»
+	//ä¸‹æ´»ä¸€
 		if (score<max)
 			score=0;
 		if (score==max)
@@ -606,15 +606,15 @@ void Run()
 	while (iswin())
 		playchoice();
 	if (wint==1)
-		printf("\n\t\t\t°×ÆåÓ®ÁË£¡\n");
+		printf("\n\t\t\tç™½æ£‹èµ¢äº†ï¼\n");
 	else
-		printf("\n\t\t\tºÚÆåÓ®ÁË£¡\n");
-	printf("\t\t\tÓÎÏ·½áÊø£¡\n\t\t°´ÈÎÒâ¼üÖØĞÂ¿ªÊ¼\n");
+		printf("\n\t\t\té»‘æ£‹èµ¢äº†ï¼\n");
+	printf("\t\t\tæ¸¸æˆç»“æŸï¼\n\t\tæŒ‰ä»»æ„é”®é‡æ–°å¼€å§‹\n");
 	x=getch();
 }
 int main()
 {
-    printf("\n\n\n\tÊ¹ÓÃwsadÒÆ¶¯£¬jÂä×Ó\n");
+    printf("\n\n\n\tä½¿ç”¨wsadç§»åŠ¨ï¼Œjè½å­\n");
 	Sleep(800);
 	system("cls");
 	while(!kbhit())
