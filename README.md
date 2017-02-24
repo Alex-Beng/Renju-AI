@@ -1,1 +1,2 @@
-在windows的dev-c++环境下编写
+在MinGW环境下编写
+Written in MinGW environment
